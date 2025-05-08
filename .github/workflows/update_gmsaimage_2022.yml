@@ -1,4 +1,4 @@
-name: Build and Push Windows Container
+name: Build and Push gMSA Image 2022 to Docker Hub
 
 on:
   push:
