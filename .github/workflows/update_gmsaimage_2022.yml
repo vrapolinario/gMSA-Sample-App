@@ -1,6 +1,7 @@
 name: Build and Push gMSA Image 2022 to Docker Hub
 
 on:
+  workflow_dispatch:  # Enables manual execution
   push:
     branches:
       - main
