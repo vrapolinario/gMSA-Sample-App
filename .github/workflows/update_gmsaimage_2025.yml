@@ -1,0 +1,26 @@
+name: Build and Push gMSA Image 2025 to Docker Hub
+
+on:
+  workflow_dispatch:  # Allows manual execution
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 1 * *' # Runs on the 1st day of every month
+
+jobs:
+  build:
+    runs-on: windows-2025  # Specifies Windows Server 2025 as the runner
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+    - name: Build the container with dockerfile_2025
+      run: docker build -f dockerfile_2025 -t vrapolinario/gmsasampleapp:ltsc2025 .
+
+    - name: Push the container
+      run: docker push vrapolinario/gmsasampleapp:ltsc2025
