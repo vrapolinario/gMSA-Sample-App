@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2019
+FROM mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2025
 WORKDIR /LogMonitor
 COPY LogMonitorConfig.json .
 RUN powershell.exe -command wget -uri https://github.com/microsoft/windows-container-tools/releases/download/v1.2.1/LogMonitor.exe -outfile LogMonitor.exe
