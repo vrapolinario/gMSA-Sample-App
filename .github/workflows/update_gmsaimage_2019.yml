@@ -1,4 +1,4 @@
-name: Build and Push gMSA Image 2022 to Docker Hub
+name: Build and Push gMSA Image 2019 to Docker Hub
 
 on:
   workflow_dispatch:  # Enables manual execution
@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2022 # Specifies Windows Server 2022 as the runner
+    runs-on: windows-2019 # Specifies Windows Server 2019 as the runner
 
     steps:
     - name: Checkout repository
@@ -20,7 +20,7 @@ jobs:
       run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
     - name: Build the container
-      run: docker build -f dockerfile_2022 -t vrapolinario/gmsasampleapp:ltsc2022 .
+      run: docker build -f dockerfile_2019 -t vrapolinario/gmsasampleapp:ltsc2019 .
 
     - name: Push the container
-      run: docker push vrapolinario/gmsasampleapp:ltsc2022
+      run: docker push vrapolinario/gmsasampleapp:ltsc2019
