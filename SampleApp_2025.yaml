@@ -16,10 +16,10 @@ spec:
         "kubernetes.io/os": windows
       securityContext:
         windowsOptions:
-          gmsaCredentialSpecName: credspec
+          gmsaCredentialSpecName: credspec # Replace the credential spec name with the one you created
       containers:
       - name: gmsalm-demo
-        image: vrapolinario/gmsasampleapp:ltsc2022
+        image: vrapolinario/gmsasampleapp:ltsc2025
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 80
